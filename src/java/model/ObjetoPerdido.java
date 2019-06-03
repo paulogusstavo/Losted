@@ -16,17 +16,24 @@ public class ObjetoPerdido {
     private String nome;
     private String cor;
     private String codigo;
-    private Date dataEncontrado;
     private Localizacao localizacao;
+    private String dataCadastrado;
     
     public ObjetoPerdido () { }
 
-    public ObjetoPerdido(String nome, String cor, String codigo, Date dataEncontrado, Localizacao localizacao) {
+    public ObjetoPerdido(String nome, String cor, String codigo, Localizacao localizacao) {
         this.nome = nome;
         this.cor = cor;
         this.codigo = codigo;
-        this.dataEncontrado = dataEncontrado;
         this.localizacao = localizacao;
+    }
+    
+    public ObjetoPerdido(String nome, String cor, String codigo, Localizacao localizacao, String dataCadastrado) {
+        this.nome = nome;
+        this.cor = cor;
+        this.codigo = codigo;
+        this.localizacao = localizacao;
+        this.dataCadastrado = dataCadastrado;
     }
 
     public String getNome() {
@@ -53,14 +60,6 @@ public class ObjetoPerdido {
         this.codigo = codigo;
     }
 
-    public Date getDataEncontrado() {
-        return dataEncontrado;
-    }
-
-    public void setDataEncontrado(Date dataEncontrado) {
-        this.dataEncontrado = dataEncontrado;
-    }
-
     public Localizacao getLocalizacao() {
         return localizacao;
     }
@@ -68,6 +67,15 @@ public class ObjetoPerdido {
     public void setLocalizacao(Localizacao localizacao) {
         this.localizacao = localizacao;
     }
+
+    public String getDataCadastrado() {
+        return dataCadastrado;
+    }
+
+    public void setDataCadastrado(String dataCadastrado) {
+        this.dataCadastrado = dataCadastrado;
+    }
+    
     
     
 }

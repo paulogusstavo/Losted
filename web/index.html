@@ -6,11 +6,24 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>LOSTED - Achados e Perdidos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Paulo Gustavo Zanese">
+        
+        <script src="view/js/script.js"></script>
     </head>
     <body>
-        <div>TODO write content</div>
+        <h1> Bem vindo ao LOSTED!</h1>
+        
+        <a href="view/pages/CadastrarObjeto.jsp">
+            <button>Cadastrar Objeto</button>
+        </a>
+        
+        <input type="text" placeholder="Busca" id="search"/>
+        
+        
+        <button onclick="getPesquisa()">Listar Objetos</button>        
+               
     </body>
 </html>
