@@ -4,12 +4,25 @@ package model;
  */
 public class Localizacao {
     
+    private int id;
     private String corBloco;
     private String numBloco;
     
     public Localizacao (String corBloco, String numBloco) {
         this.corBloco = corBloco;
         this.numBloco = numBloco;
+    }
+
+    public Localizacao(int id) {
+        this.id = id;
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCorBloco() {

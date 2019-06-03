@@ -54,17 +54,31 @@ CREATE TABLE Objeto (
 );
 
 CREATE TABLE Devolucao (
+	pessoa VARCHAR(255),
     objeto_FK INT,
-    pessoa VARCHAR(255),
-    
+    usuario_FK INT,
+    observacao VARCHAR (2000),
     
 	PRIMARY KEY (objeto_FK),
-    FOREIGN KEY (objeto_FK) REFERENCES Objeto(id)
+    FOREIGN KEY (objeto_FK) REFERENCES Objeto(id),
+    FOREIGN KEY (usuario_FK) REFERENCES Usuario(id)
 );
 
 #-----TRIGGER--------------------------------------------------------------------------------
-create trigger trg_Senha before insert on Usuario for each row 
-set new.senha = md5(new.senha);
+CREATE TRIGGER trg_senha BEFORE INSERT ON Usuario FOR EACH ROW
+SET NEW.senha = md5(NEW.senha);
+
+DELIMITER $$
+CREATE
+    TRIGGER `trg_devolucao` BEFORE INSERT ON `Devolucao` 
+    FOR EACH ROW BEGIN
+    
+       UPDATE Objeto 
+       SET encontrado = true
+       WHERE id = new.objeto_FK; 
+    END;
+$$
+DELIMITER ;
 
 #-----STORED---------------------------------------------------------------------------------
 drop procedure if exists login;
@@ -99,12 +113,19 @@ INSERT INTO Status (id, status) VALUES (2, "Devolvido");
 
 INSERT INTO Localizacao (cor_bloco, numero_bloco) VALUES ("Vermelho", 5);
 INSERT INTO Localizacao (cor_bloco, numero_bloco) VALUES ("Vermelho", 6);
-INSERT INTO Localizacao (cor_bloco, numero_bloco) VALUES ("Azul", 3);
+INSERT INTO Localizacao (cor_bloco, numero_bloco) VALUES ("Azul", 2);
+INSERT INTO Localizacao (cor_bloco, numero_bloco) VALUES ("Amarelo", 1);
+INSERT INTO Localizacao (cor_bloco, numero_bloco) VALUES ("Verde", 3);
+INSERT INTO Localizacao (cor_bloco, numero_bloco) VALUES ("Laranja", 4);
 
-INSERT INTO Objeto (id, nome, cor, codigo, localizacao_FK) VALUES (1, "Blusa", "Vermelho", "1234-ABC", 1);
+INSERT INTO Objeto (nome, cor, codigo, localizacao_FK) VALUES ("Blusa", "Vermelho", "1234-ABC", 1);
+
+SELECT * FROM Localizacao ORDER BY numero_bloco ASC;
 #-----SELECT---------------------------------------------------------------------------------
 select * from Usuario;
 
 SELECT id FROM Localizacao L WHERE L.cor_bloco = "Vermelho" AND L.numero_bloco = 6;
+SELECT DISTINCT cor_bloco FROM Localizacao;
+SELECT numero_bloco FROM Localizacao WHERE cor_bloco = "Vermelho";
 
 SELECT nome, cor, codigo, data_cadastrado, cor_bloco, numero_bloco FROM Objeto O INNER JOIN Localizacao L ON O.localizacao_FK = L.id WHERE encontrado = false AND nome LIKE '%BLusa%';

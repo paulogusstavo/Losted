@@ -3,12 +3,9 @@ package controller;
 import DAO.ObjetoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -66,6 +63,25 @@ public class ObjetoController extends HttpServlet {
             throws ServletException, IOException {
             //Cadastro de Objeto via POST.
         
+        objDAO = new ObjetoDAO();
+        ObjetoPerdido objPerdido = new ObjetoPerdido();
+        
+        PrintWriter out = response.getWriter();
+        response.setContentType("text/plain");
+        
+        String nome = request.getParameter("nome");
+        objPerdido.setNome(nome);
+        
+        String cor = request.getParameter("cor");
+        objPerdido.setCor(cor);
+        
+        String codigo = request.getParameter("codigo");
+        objPerdido.setCodigo(codigo);
+       
+        int idLocalizacao = Integer.parseInt(request.getParameter("localizacao"));
+        objPerdido.setLocalizacao(new Localizacao(idLocalizacao));
+      
+        objDAO.inserir(objPerdido);
         
         
     }

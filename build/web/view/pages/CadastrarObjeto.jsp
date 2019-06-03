@@ -4,6 +4,9 @@
     Author     : paulogusstavo
 --%>
 
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="DAO.ObjetoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,18 +17,32 @@
     <body>
         <h1>Cadastro de Objetos</h1>
         
-        <form action="" method="POST" id="cadastroObjeto">
+        <form action="../../ObjetoController" method="POST" id="cadastroObjeto">
             
-            <input type="text" name="Nome" placeholder="Nome"><br>
-            <input type="text" name="Cor" placeholder="Cor"><br>
-            <input type="text" name="Código" placeholder="Código"><br>
+            <input type="text" name="nome" placeholder="Nome"><br>
+            <input type="text" name="cor" placeholder="Cor"><br>
+            <input type="text" name="codigo" placeholder="Código"><br>
             
-            <select name="select">
+            <select name="localizacao">
                 <option selected>Selecione uma opção</option>
-                <option value="Vermelho">Vermelho</option>                 
-                <option value="Azul">Azul</option>
+            <%
+                ObjetoDAO dao = new ObjetoDAO();
+                ResultSet rs = dao.getLocalizacao();
+                try {
+                    while (rs.next()) {
+                        String opcao = "<option value='" + 
+                                rs.getString("id") + "'>" + 
+                                "Bloco " + rs.getString("numero_bloco") +
+                                " (" + rs.getString("cor_bloco") + ")</option>"; 
+                        out.print(opcao);
+                    }
+                } 
+                 catch (SQLException ex) { }
+            %>
             </select>
+            
             <br>
+            
             <button type="submit" form="cadastroObjeto">Cadastrar</button>
                       
         </form>

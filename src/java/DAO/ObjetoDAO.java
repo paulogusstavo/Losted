@@ -33,15 +33,30 @@ public class ObjetoDAO {
         }
         catch(SQLException ex) { return resultado; }
     }
+    
+    public ResultSet getLocalizacao(){
+        try{
+            query = "SELECT * FROM Localizacao ORDER BY numero_bloco ASC";
+            
+            statement = conn.getConnection().prepareStatement(query);
+            resultado = statement.executeQuery();
+            
+            return resultado;
+        }
+        catch(SQLException ex) { return resultado; }
+    }
    
-    public void inserir(ObjetoPerdido op){
-        
+    public void inserir(ObjetoPerdido op) {
         try{
             // Consulta aninhada para receber o id_FK da localizacao.
-            query = "INSER INTO Objeto (nome, cor, codigo, localizacao_FK) VALUES "
+//            query = "INSERT INTO Objeto (nome, cor, codigo, localizacao_FK) VALUES "
+//                    + "(\""+ op.getNome() + "\", \"" + op.getCor() + "\", \"" + op.getCodigo() + "\", "
+//                    + "(SELECT id FROM Localizacao L WHERE L.cor_bloco = \"" + op.getLocalizacao().getCorBloco() + "\""
+//                    + "AND L.numero_bloco=" + op.getLocalizacao().getNumBloco() + "))";
+
+            query = "INSERT INTO Objeto (nome, cor, codigo, localizacao_FK) VALUES "
                     + "(\""+ op.getNome() + "\", \"" + op.getCor() + "\", \"" + op.getCodigo() + "\", "
-                    + "(SELECT id FROM Localizacao L WHERE L.cor_bloco = \"" + op.getLocalizacao().getCorBloco() + "\""
-                    + "AND L.numero_bloco=" + op.getLocalizacao().getNumBloco() + "))";
+                    + op.getLocalizacao().getId() + ")";
                    
             statement = conn.getConnection().prepareStatement(query);
             statement.executeUpdate();          

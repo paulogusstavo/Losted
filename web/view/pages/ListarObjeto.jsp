@@ -18,14 +18,16 @@
         <h1>Lista de Objetos Perdidos</h1>
         
         <%
-             ArrayList<ObjetoPerdido> myPizza = (ArrayList<ObjetoPerdido>)request.getAttribute("objetos");
+             ArrayList<ObjetoPerdido> objetosPerdidos = (ArrayList<ObjetoPerdido>)request.getAttribute("objetos");
       
-            for (int i=0; i<myPizza.size(); i++) {
-                out.print(myPizza.get(i).getNome() + "<br>");
-                out.print(myPizza.get(i).getCor()+ "<br>");
-                out.print(myPizza.get(i).getCodigo() + "<br>");
-                out.print(myPizza.get(i).getLocalizacao().getCorBloco() + "<br>");
-                out.print(myPizza.get(i).getLocalizacao().getNumBloco() + "<br>");
+            for (int i=0; i<objetosPerdidos.size(); i++) {
+                out.print(objetosPerdidos.get(i).getNome() + "<br>");
+                out.print(objetosPerdidos.get(i).getCor()+ "<br>");
+                out.print(objetosPerdidos.get(i).getCodigo() + "<br>");
+                out.print(objetosPerdidos.get(i).getLocalizacao().getCorBloco() + "<br>");
+                out.print(objetosPerdidos.get(i).getLocalizacao().getNumBloco() + "<br>");
+                out.print(objetosPerdidos.get(i).getDataCadastrado() + "<br>");
+                
             }
         
         %>
