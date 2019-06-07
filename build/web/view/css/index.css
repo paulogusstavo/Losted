@@ -1,0 +1,102 @@
+body {
+	background-color: #642265;
+}
+
+.botao {
+  width: 113px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 20.5px;
+  border: solid 3px #ffffff;
+  background-color: #642265;
+  float: right;
+  cursor: pointer;
+}
+.botao-entrar {
+  width: 113px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 20.5px;
+  border: solid 3px #ffffff;
+  background-color: #642265;
+  cursor: pointer;
+}
+
+.cadastrar {
+	margin-right: 30px;
+	margin-top: 20px;
+
+}
+
+.login {
+	margin-right: 12px;
+	margin-top: 20px;
+}
+
+.texto {
+  width: 43px;
+  height: 18px;
+  object-fit: contain;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+.logo_fundo_roxo {
+  width: 345px;
+  height: 287px;
+  object-fit: contain;
+  margin-top: 130px;
+  margin-left: 20%;
+}
+.logo_fundo_roxo_login {
+  width: 345px;
+  height: 287px;
+  object-fit: contain;
+  margin-top: 5%;
+  width: 20%;
+  height: 20%;
+}
+.campo-de-busca {
+  width: 570px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 20.5px;
+  border: solid 2px #ffffff;
+  background-color: #825083;
+  text-align: left;
+  padding-left: 15px; 
+  margin-top: 15px;
+}
+.campo-de-login {
+  width: 292px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 20.5px;
+  border: solid 2px #ffffff;
+  background-color: #825083;
+  text-align: left;
+  padding-left: 15px; 
+  margin-top: 15px;
+}
+
+.search_icon {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  display: inline;
+  margin-left: 15px;
+  margin-bottom: -8px;
+}
+
+.rock {
+  background-image:url('img/search-icon.png"');
+  background-repeat:no-repeat;
+}
+
+

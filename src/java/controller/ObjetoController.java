@@ -10,8 +10,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Devolucao;
 import model.Localizacao;
 import model.ObjetoPerdido;
+import model.Usuario;
 /**
  * @author paulogusstavo
  */
@@ -25,11 +27,8 @@ public class ObjetoController extends HttpServlet {
             throws ServletException, IOException {
             //Pesquisa de Objeto via GET.
         
-//        PrintWriter out = response.getWriter();
         response.setContentType("text/plain");
         String paramValue = request.getParameter("pesquisa");
-//        out.write(paramValue);
-//        out.close();        
         
         objDAO = new ObjetoDAO();
         rs = objDAO.listarPendentes(paramValue);
@@ -43,8 +42,8 @@ public class ObjetoController extends HttpServlet {
                       rs.getString("cor"),
                       rs.getString("codigo"),
                       new Localizacao(
-                              rs.getString("cor_bloco"), 
-                              rs.getString("numero_bloco")
+                            rs.getString("cor_bloco"), 
+                            rs.getString("numero_bloco")
                       ),
                       rs.getString("data_cadastrado")
                 ));                                
@@ -63,27 +62,42 @@ public class ObjetoController extends HttpServlet {
             throws ServletException, IOException {
             //Cadastro de Objeto via POST.
         
-        objDAO = new ObjetoDAO();
-        ObjetoPerdido objPerdido = new ObjetoPerdido();
-        
-        PrintWriter out = response.getWriter();
-        response.setContentType("text/plain");
-        
-        String nome = request.getParameter("nome");
-        objPerdido.setNome(nome);
-        
-        String cor = request.getParameter("cor");
-        objPerdido.setCor(cor);
-        
-        String codigo = request.getParameter("codigo");
-        objPerdido.setCodigo(codigo);
-       
-        int idLocalizacao = Integer.parseInt(request.getParameter("localizacao"));
-        objPerdido.setLocalizacao(new Localizacao(idLocalizacao));
-      
-        objDAO.inserir(objPerdido);
-        
-        
+        String codigoDevolucao = request.getParameter("codigoDevolucao");
+        if (codigoDevolucao != null) { // DEVOLUCAO DE OBJETO
+            
+            String codDevolucao = request.getParameter("codigoDevolucao");
+            String pessoa = request.getParameter("pessoa");
+            String obs = request.getParameter("observacao");
+            
+            objDAO = new ObjetoDAO();
+            objDAO.devolverObjeto(
+                    new Devolucao(codDevolucao, pessoa, obs)
+            );
+                 
+            
+        }
+        else { // INSERIR OBJETO
+            objDAO = new ObjetoDAO();
+            ObjetoPerdido objPerdido = new ObjetoPerdido();
+
+            PrintWriter out = response.getWriter();
+            response.setContentType("text/plain");
+
+            String nome = request.getParameter("nome");
+            objPerdido.setNome(nome);
+
+            String cor = request.getParameter("cor");
+            objPerdido.setCor(cor);
+
+            String codigo = request.getParameter("codigo");
+            objPerdido.setCodigo(codigo);
+
+            int idLocalizacao = Integer.parseInt(request.getParameter("localizacao"));
+            objPerdido.setLocalizacao(new Localizacao(idLocalizacao));
+
+            objDAO.inserir(objPerdido);
+        }
+         
     }
 
 }

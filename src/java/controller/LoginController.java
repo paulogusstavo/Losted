@@ -2,8 +2,7 @@ package controller;
 
 import DAO.LoginDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -41,7 +40,7 @@ public class LoginController extends HttpServlet {
            request.getRequestDispatcher("view/pages/Home.jsp").forward(request, response);
        }
        else {
-           request.getRequestDispatcher("view/pages/ListarObjeto.jsp").forward(request, response);
+//           out.print("TESTE");
        }
     
         

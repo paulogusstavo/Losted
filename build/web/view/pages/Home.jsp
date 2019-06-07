@@ -9,19 +9,37 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Losted - Home</title>
+        <title>Retorno Rápido - Home</title>
+        
+        <link rel="stylesheet" type="text/css" href="view/css/cadastro-objeto.css">
     </head>
     <body>
-        <%
-            String user = (String)request.getAttribute("nomeUsuario");        
-            out.print("<h1>Bem Vindo, " + user + "</h1>");
-        %>
-        
-        <a href="view/pages/CadastrarObjeto.jsp">
-            <button>Cadastrar Objeto</button>
-        </a>
-        <br><br>
-        
+    <center>
+            <div class="direita">
 
+                <%
+                    String user = (String) request.getAttribute("nomeUsuario");
+                    out.print("<span class='bem-vindo'>BEM VINDO, " + user.toUpperCase() + "</span>");
+                %>
+
+                <div class="pipe"></div>
+
+                <span class="sair" onclick="location='index.html'" >SAIR</span>
+            </div>
+            <br><br><br><br>
+            <div>
+                <img src="view/img/logo-fundo-branco-horizontal.png" class="logo_fundo_branco_horizontal">
+            </div>
+            <br>
+            <div>
+                <button class="texto" onclick="location='view/pages/CadastrarObjeto.jsp'">Cadastrar Objeto</button>
+                <br><br>
+
+                <button class="texto" onclick="location='view/pages/DevolverObjeto.jsp'">Devolver Objeto</button>
+                <br><br>
+            </div>
+
+        
+    </center>
     </body>
 </html>

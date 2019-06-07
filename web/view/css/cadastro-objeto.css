@@ -1,0 +1,102 @@
+.logo_fundo_branco_horizontal {
+  width: 745px;
+  height: 152px;
+  object-fit: contain;
+  width: 40%;
+}
+
+input, textarea{
+  width: 294px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 20.5px;
+  border: solid 3px #642265;
+  background-color: #ffffff;
+}
+
+select{
+  width: 315px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 20.5px;
+  border: solid 3px #642265;
+  background-color: #ffffff;
+  padding: 5px;
+}
+.texto {
+  object-fit: contain;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #642265;
+  padding-left: 15px;
+}
+
+
+button {
+  width: 315px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 20.5px;
+  border: solid 3px #642265;
+  background-color: #ffffff;
+  text-align: center !important;
+  cursor: pointer;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    padding: 2px 30px 2px 2px;
+}
+
+.Shape-1 {
+  width: 0.3px;
+  height: 44px;
+  object-fit: contain;
+  border: solid 2px #642265;
+  background-color: #ffffff;
+}
+
+span {
+	color: #642265;
+        white-space: nowrap;
+}
+
+.direita {
+	float: right;
+	margin-right: -15px;
+	margin-top: 23px;
+}
+
+.pipe {
+    border-left: 3px solid #642265;
+    height: 50px;
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    margin-right: 90px;
+    white-space: nowrap;
+}
+
+.bem-vindo {
+    margin-left: -85%;
+}
+.sair {
+    margin-right: 0%;
+    margin-left: 25%;
+    cursor: pointer;
+}
+.obs {
+    height: 100px;
+}
+textarea {
+  resize: none;
+}

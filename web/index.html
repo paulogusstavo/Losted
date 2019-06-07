@@ -6,24 +6,41 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>LOSTED - Achados e Perdidos</title>
+        <title>Reorno Rápido</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Paulo Gustavo Zanese">
+        <link href="view/css/index.css" rel="stylesheet" type="text/css">
         
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="view/js/script.js"></script>
+        
     </head>
     <body>
-        <h1> Bem vindo</h1>
         
-        <input type="text" placeholder="Busca" id="search"/>        
-        <button onclick="getPesquisa()">Listar Objetos</button>        
-        <br><br>
-        
-        <a href="view/pages/Login.jsp">
-            <button>Login</button>
-        </a>
-        <br><br>
+        <div>
+            <button class="botao cadastrar">
+                <span class="texto">Cadastrar</span>
+            </button>
+
+            <button onclick="location.href='view/pages/Login.jsp'" class="botao login">
+                <span class="texto">Login</span>
+            </button>
+        </div>
+        <br><br><br>
+        <br><br><br>
+        <div>
+            <center>
+                <div>
+                    <img src="view/img/logo-fundo-roxo.png">
+                </div>
+                
+                <div>
+                <input type="text" id="search" class="campo-de-busca texto" placeholder="Faça sua busca aqui"></input>
+                <img src="view/img/search-icon-branco.png" class="search_icon">
+                </div>
+            </center>
+        </div>
                
     </body>
 </html>

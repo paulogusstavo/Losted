@@ -4,8 +4,11 @@
  * and open the template in the editor.
  */
 
-
-function getPesquisa () {
-  var pesquisa = document.getElementById("search").value;
-  window.location.href = "ObjetoController?pesquisa=" + pesquisa;
-}
+$(document).ready(function() {
+    $("#search").on('keyup', function (e) {
+        if (e.keyCode == 13) {
+            var pesquisa = document.getElementById("search").value;
+            window.location.href = "ObjetoController?pesquisa=" + pesquisa;
+        }
+    });
+});
