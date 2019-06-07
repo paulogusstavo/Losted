@@ -16,7 +16,7 @@
     </head>
     <body>
     <center>
-        <form action="../../ObjetoController" method="POST">
+        <form action="../../ObjetoController" method="POST" id="devolverObjeto">
             
             <div class="direita">
                 <span class="bem-vindo">BEM VINDO, ADMIN</span> 
@@ -29,19 +29,17 @@
             <div>
                 <img src="../img/logo-fundo-branco-horizontal.png" class="logo_fundo_branco_horizontal">
             </div>
-
             <br>
-
             <div>
                 
-                <input class="texto input" type="text" name="codigoDevolucao" placeholder="Codigo"/>
+                <input class="texto input" type="text" name="codigoDevolucao" placeholder="Codigo" required/>
                 <br><br>
-                <input class="texto input" type="text" name="pessoa" placeholder="Aluno que encontrou"/>
+                <input class="texto input" type="text" name="pessoa" placeholder="Aluno" required/>
                 <br><br>
                 <textarea class="texto obs" name="observacao" rows="5" placeholder="Observação"></textarea>
 
                 <br><br><br>
-                <button form="cadastroObjeto" type="submit" class="texto">Devolver</button>
+                <button form="devolverObjeto" type="submit" class="texto">Devolver</button>
             </div>
 
         </center>

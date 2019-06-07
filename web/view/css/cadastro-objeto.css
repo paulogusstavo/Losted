@@ -96,6 +96,7 @@ span {
 }
 .obs {
     height: 100px;
+    padding-top: 7px;
 }
 textarea {
   resize: none;

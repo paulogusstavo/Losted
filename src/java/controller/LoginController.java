@@ -40,7 +40,7 @@ public class LoginController extends HttpServlet {
            request.getRequestDispatcher("view/pages/Home.jsp").forward(request, response);
        }
        else {
-//           out.print("TESTE");
+           response.sendRedirect("view/pages/Login.jsp");
        }
     
         

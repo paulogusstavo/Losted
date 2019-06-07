@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS LOSTED;
-CREATE DATABASE IF NOT EXISTS LOSTED;
-USE LOSTED;
+DROP DATABASE IF EXISTS RETORNO_RAPIDO;
+CREATE DATABASE IF NOT EXISTS RETORNO_RAPIDO;
+USE RETORNO_RAPIDO;
 
 CREATE TABLE Localizacao (
 	id INT AUTO_INCREMENT,
@@ -115,27 +115,17 @@ INSERT INTO Localizacao (cor_bloco, numero_bloco) VALUES ("Laranja", 4);
 
 INSERT INTO Objeto (nome, cor, codigo, localizacao_FK) VALUES ("Blusa de Moletom", "Vermelho", "1234-ABC", 1);
 INSERT INTO Objeto (nome, cor, codigo, localizacao_FK) VALUES ("Guarda-Chuva", "Preto", "1043-APG", 2);
-INSERT INTO Objeto (nome, cor, codigo, localizacao_FK) VALUES ("Guarda-Chuva", "Preto", "q043-APG", 2);
-INSERT INTO Objeto (nome, cor, codigo, localizacao_FK) VALUES ("Guarda-Chuva", "Preto", "2d043-APG", 2);
-INSERT INTO Objeto (nome, cor, codigo, localizacao_FK) VALUES ("Guarda-Chuva", "Preto", "2d43-APG", 2);
-INSERT INTO Objeto (nome, cor, codigo, localizacao_FK) VALUES ("Guarda-Chuva", "Preto", "20d43-APG", 2);
-INSERT INTO Objeto (nome, cor, codigo, localizacao_FK) VALUES ("Guarda-Chuva", "Preto", "204f3-APG", 2);
-INSERT INTO Objeto (nome, cor, codigo, localizacao_FK) VALUES ("Guarda-Chuva", "Preto", "2043f-APG", 2);
-INSERT INTO Objeto (nome, cor, codigo, localizacao_FK) VALUES ("Guarda-Chuva", "Preto", "2043-dAPG", 2);
-INSERT INTO Objeto (nome, cor, codigo, localizacao_FK) VALUES ("Guarda-Chuva", "Preto", "2043-AsPG", 2);
-
-select * from objeto;
 
 -- INSERT INTO Devolucao (pessoa, objeto_FK, usuario_FK, observacao) VALUES ("Paulo Zanese", "1234-ABC", 1, "TESTE");
 
 #-----SELECT---------------------------------------------------------------------------------
--- SELECT * FROM Localizacao ORDER BY numero_bloco ASC;
--- select * from Usuario;
+SELECT * FROM Localizacao ORDER BY numero_bloco ASC;
+select * from Usuario;
 
--- SELECT id FROM Localizacao L WHERE L.cor_bloco = "Vermelho" AND L.numero_bloco = 6;
--- SELECT DISTINCT cor_bloco FROM Localizacao;
--- SELECT numero_bloco FROM Localizacao WHERE cor_bloco = "Vermelho";
+SELECT id FROM Localizacao L WHERE L.cor_bloco = "Vermelho" AND L.numero_bloco = 6;
+SELECT DISTINCT cor_bloco FROM Localizacao;
+SELECT numero_bloco FROM Localizacao WHERE cor_bloco = "Vermelho";
 
--- SELECT nome, cor, codigo, data_cadastrado, cor_bloco, numero_bloco FROM Objeto O 
-	-- INNER JOIN Localizacao L ON O.localizacao_FK = L.id 
-	-- WHERE status_FK = 1 AND nome LIKE '%BLusa%';
+SELECT nome, cor, codigo, data_cadastrado, cor_bloco, numero_bloco FROM Objeto O 
+	INNER JOIN Localizacao L ON O.localizacao_FK = L.id 
+	WHERE status_FK = 1 AND nome LIKE '%Blusa%';

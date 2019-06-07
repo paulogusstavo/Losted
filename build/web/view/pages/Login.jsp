@@ -14,8 +14,13 @@
         
     </head>
     <body>
+        
+        <button onclick="location='../../index.html'" class="botao-voltar">
+             <span class="texto">Voltar</span>
+        </button>
+        
+        
         <form action="../../LoginController" method="POST">
-            
             <div>
                 <center>
                     <img src="../img/logo-fundo-roxo.png" class="logo_fundo_roxo_login">

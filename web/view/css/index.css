@@ -99,4 +99,17 @@ body {
   background-repeat:no-repeat;
 }
 
+.botao-voltar {
+  width: 113px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 20.5px;
+  border: solid 3px #ffffff;
+  background-color: #642265;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-left: 15px;
+  
+}
+
 

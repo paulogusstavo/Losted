@@ -60,10 +60,11 @@ public class ObjetoController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            //Cadastro de Objeto via POST.
         
         String codigoDevolucao = request.getParameter("codigoDevolucao");
+        
         if (codigoDevolucao != null) { // DEVOLUCAO DE OBJETO
+            
             
             String codDevolucao = request.getParameter("codigoDevolucao");
             String pessoa = request.getParameter("pessoa");
@@ -73,8 +74,8 @@ public class ObjetoController extends HttpServlet {
             objDAO.devolverObjeto(
                     new Devolucao(codDevolucao, pessoa, obs)
             );
-                 
             
+            response.sendRedirect("view/pages/DevolverObjeto.jsp");
         }
         else { // INSERIR OBJETO
             objDAO = new ObjetoDAO();
@@ -96,6 +97,8 @@ public class ObjetoController extends HttpServlet {
             objPerdido.setLocalizacao(new Localizacao(idLocalizacao));
 
             objDAO.inserir(objPerdido);
+            
+            response.sendRedirect("view/pages/CadastrarObjeto.jsp");
         }
          
     }

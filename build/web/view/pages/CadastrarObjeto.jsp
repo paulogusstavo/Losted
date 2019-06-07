@@ -17,7 +17,7 @@
     </head>
     <body>
     <center>
-        <form action="../../ObjetoController" method="POST" id="cadastroObjeto">
+        
         <div class="direita">
             <span class="bem-vindo">BEM VINDO, ADMIN</span> 
 
@@ -31,13 +31,13 @@
         </div>
 
         <br>
-
+        <form action="../../ObjetoController" method="POST" id="cadastroObjeto">
         <div>
-            <input class="texto input" type="text" name="nome" placeholder="Nome"><br><br>
-            <input class="texto input" type="text" name="cor" placeholder="Cor"><br><br>
-            <input class="texto input" type="text" name="codigo" placeholder="Código"><br><br>
+            <input class="texto input" type="text" name="nome" placeholder="Nome" required><br><br>
+            <input class="texto input" type="text" name="cor" placeholder="Cor" required><br><br>
+            <input class="texto input" type="text" name="codigo" placeholder="Código" required><br><br>
             
-            <select class="texto input" name="localizacao">
+            <select class="texto input" name="localizacao" required>
                 <option value="" disabled selected>Localização</option>
                 <%
                     ObjetoDAO dao = new ObjetoDAO();
@@ -57,8 +57,8 @@
 
             <br><br><br>
             <button form="cadastroObjeto" type="submit" class="texto">Cadastrar novo objeto</button>
+        
         </div>
-
         </form>
     </center>
     

@@ -10,7 +10,8 @@ public class Conexao {
     private final static String usuario = "root";
     private final static String senha = "root";
     private final static String driver = "com.mysql.jdbc.Driver";
-    private final static String banco = "jdbc:mysql://127.0.0.1:8889/LOSTED"; // *VERIFICAR PORTA DO MYSQL*
+    // *** VERIFICAR PORTA DO MYSQL ABAIXO ***
+    private final static String banco = "jdbc:mysql://127.0.0.1:8889/RETORNO_RAPIDO";
     private Connection conn;
     
     public Conexao(){
